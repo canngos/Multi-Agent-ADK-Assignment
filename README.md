@@ -227,4 +227,4 @@ These are about the submitted run (`results/`, 4 rounds, scores 6 → 8 → 9 �
 - Overview of all rounds: `results/progression.png`
 
 ## Use of AI
-This assignment's planning, coding, and structuring the README was assisted by Claude Code. Multiple system running decisions (fine-tuning) during the development of the system was made by the author.
+This assignment's planning, coding, and structuring the README was assisted by Claude Code. Multiple system running decisions (fine-tuning) during the development of the system was made by the developer.
