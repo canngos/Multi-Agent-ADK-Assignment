@@ -120,7 +120,6 @@ def critic_instruction(ctx: ReadonlyContext) -> str:
     round_no = _state(ctx, "round", 1)
     subject = _state(ctx, "subject", config.SUBJECT)
     previous = _state(ctx, "critic_feedback", "")
-    painter_summary = _state(ctx, "painter_summary", "(no summary)")
     max_rounds = _state(ctx, "max_rounds", config.MAX_ROUNDS)
 
     previous_block = (
@@ -143,10 +142,8 @@ The Painter was asked to draw this SUBJECT:
 {subject}
 
 This is round {round_no} of at most {max_rounds}.
-The Painter says it did this round:
-<painter_summary>
-{painter_summary}
-</painter_summary>
+You are NOT told what the Painter claims to have drawn: judge only what you
+see in the images.
 {previous_block}
 
 WHAT YOU SEE:
@@ -156,7 +153,7 @@ You get images of the {config.CANVAS_SIZE}x{config.CANVAS_SIZE} drawing, upscale
    (0, 0) is the top-left corner, x to the right, y downwards, 0 to {config.CANVAS_SIZE - 1};
 3. (from round 2 on) the PREVIOUS round's drawing - use it only to see what
    changed and whether the changes made the drawing better or worse.
-Base your review ONLY on what you see in the images, not on the summary.
+Base your review ONLY on what you see in the images.
 
 THE PAINTER'S TOOLS (use these exact names in your next steps):
 - fill_background(color)                      - whole canvas; starts over
